@@ -1,38 +1,22 @@
 import { useState, useEffect } from 'react'
-
+import GifsItem from '../../components/gifsItem/GifsItem'
 import Load from '../../components/load/Load'
-
 import getGifs from '../../services/getGifs'
 
-const ListOfGifs = ({ keyword = 'panda' }) => {
-	const [state, setState] = useState('loading')
-	const [gifs, setGifs] = useState([])
+import './listOfGifs.css'
 
-	useEffect(() => {
-		setState('loading')
-
-		getGifs({ keyword })
-			.then((data) => {
-				setGifs(data.data)
-				setState('load')
-			})
-			.catch((err) => {
-				console.log(err)
-				setState('error')
-			})
-	}, [keyword])
-
+const ListOfGifs = ({ keyword = 'panda', page = 1 }) => {
 	if (state === 'loading') return <Load />
 	else if (state === 'load')
 		return (
-			<>
+			<div className='list_of_gifs'>
 				{gifs.map((singleGif) => (
-					<div key={singleGif.id}>{singleGif.title}</div>
+					<GifsItem gif={singleGif} key={singleGif.id} />
 				))}
-			</>
+			</div>
 		)
 
-	return <div></div>
+	return <div>Ha habido un error</div>
 }
 
 export default ListOfGifs

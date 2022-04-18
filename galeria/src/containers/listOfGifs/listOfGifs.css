@@ -1,0 +1,10 @@
+.list_of_gifs {
+	box-sizing: border-box;
+	padding: 10px;
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 25px;
+}
