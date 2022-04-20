@@ -1,0 +1,18 @@
+.selected_gif {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 300;
+	background-color: #0008;
+}
+
+.selected_gif img {
+	width: 80%;
+	max-width: 600px;
+	max-height: 90%;
+}

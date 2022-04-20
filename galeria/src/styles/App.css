@@ -6,3 +6,7 @@ body {
 	background-color: #333;
 	color: #fff;
 }
+
+.gifs_content {
+	position: relative;
+}

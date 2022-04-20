@@ -3,12 +3,15 @@ import { useEffect, useState } from 'react'
 import ListOfGifs from '../containers/listOfGifs/ListOfGifs'
 import Pagination from '../components/pagination/Pagination'
 import getGifs from '../services/getGifs'
+import SelectedGif from '../components/selectedGif/SelectedGif'
 
 const Gifs = ({ params }) => {
 	let { keyword, page } = params
 
 	const [state, setState] = useState('loading')
 	const [apiData, setApiData] = useState([])
+	const [viewImage, setViewImage] = useState(false)
+	const [image, setImage] = useState('')
 
 	useEffect(() => {
 		if (!page) page = 1
@@ -26,7 +29,9 @@ const Gifs = ({ params }) => {
 
 	if (state == 'load')
 		return (
-			<div>
+			<div className='gifs_content'>
+				{viewImage && <SelectedGif image={image} setViewImage={setViewImage} />}
+
 				<Pagination
 					page={page}
 					maxGifs={apiData.pagination.count}
@@ -34,7 +39,12 @@ const Gifs = ({ params }) => {
 					keyword={keyword}
 				/>
 
-				<ListOfGifs gifs={apiData.data} />
+				<ListOfGifs
+					gifs={apiData.data}
+					setImage={setImage}
+					setViewImage={setViewImage}
+				/>
+
 				<Pagination
 					page={page}
 					maxGifs={apiData.pagination.count}

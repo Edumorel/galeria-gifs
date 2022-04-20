@@ -1,7 +1,11 @@
-import React from 'react'
+import './load.css'
 
 const Load = () => {
-	return <div>Loading ...</div>
+	return (
+		<div className='load'>
+			<div className='spinner'></div>
+		</div>
+	)
 }
 
 export default Load
