@@ -1,5 +1,3 @@
-import ListOfGifs from './containers/listOfGifs/ListOfGifs'
-
 import { Route } from 'wouter'
 import Home from './pages/Home'
 import Gifs from './pages/Gifs'
@@ -11,6 +9,7 @@ function App() {
 		<div className='App'>
 			<Route path='/' component={Home} />
 			<Route path='/:keyword' component={Gifs} />
+			<Route path='/:keyword/page/:page' component={Gifs} />
 		</div>
 	)
 }
