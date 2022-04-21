@@ -1,0 +1,29 @@
+.search {
+	width: 100%;
+	padding: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.search_input {
+	width: 90%;
+	max-width: 270px;
+	border: none;
+	outline: none;
+	background-color: #ccc;
+	padding: 10px;
+	border-radius: 25px;
+}
+
+@media screen and (min-width: 600px) {
+	.search {
+		width: 40%;
+		padding: 20px 0;
+		justify-content: flex-end;
+	}
+
+	.search_input {
+		padding: 11px 15px;
+	}
+}

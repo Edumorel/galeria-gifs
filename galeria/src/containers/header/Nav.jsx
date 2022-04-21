@@ -3,7 +3,7 @@ import { Link } from 'wouter'
 
 const Nav = () => {
 	return (
-		<nav>
+		<nav className='nav'>
 			<ul className='menu'>
 				<li className='menu_item'>
 					<Link to='/pandas' className='menu_item_link'>
