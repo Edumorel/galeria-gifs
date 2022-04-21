@@ -4,6 +4,7 @@ import ListOfGifs from '../containers/listOfGifs/ListOfGifs'
 import Pagination from '../components/pagination/Pagination'
 import getGifs from '../services/getGifs'
 import SelectedGif from '../components/selectedGif/SelectedGif'
+import Header from '../containers/header/Header'
 
 const Gifs = ({ params }) => {
 	let { keyword, page } = params
@@ -25,32 +26,36 @@ const Gifs = ({ params }) => {
 				console.log(err)
 				setState('error')
 			})
-	}, [page])
+	}, [params])
 
 	if (state == 'load')
 		return (
 			<div className='gifs_content'>
 				{viewImage && <SelectedGif image={image} setViewImage={setViewImage} />}
 
-				<Pagination
-					page={page}
-					maxGifs={apiData.pagination.count}
-					totalGifs={apiData.pagination.total_count}
-					keyword={keyword}
-				/>
+				<Header />
 
-				<ListOfGifs
-					gifs={apiData.data}
-					setImage={setImage}
-					setViewImage={setViewImage}
-				/>
+				<main>
+					<Pagination
+						page={page}
+						maxGifs={apiData.pagination.count}
+						totalGifs={apiData.pagination.total_count}
+						keyword={keyword}
+					/>
 
-				<Pagination
-					page={page}
-					maxGifs={apiData.pagination.count}
-					totalGifs={apiData.pagination.total_count}
-					keyword={keyword}
-				/>
+					<ListOfGifs
+						gifs={apiData.data}
+						setImage={setImage}
+						setViewImage={setViewImage}
+					/>
+
+					<Pagination
+						page={page}
+						maxGifs={apiData.pagination.count}
+						totalGifs={apiData.pagination.total_count}
+						keyword={keyword}
+					/>
+				</main>
 			</div>
 		)
 }

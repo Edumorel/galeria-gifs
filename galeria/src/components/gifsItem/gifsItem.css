@@ -1,12 +1,14 @@
 .gif_item {
 	position: relative;
-	width: 370px;
-	height: 370px;
+	width: 270px;
+	height: 270px;
 	overflow: hidden;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
+	border: solid 10px #fff;
+	box-shadow: 5px 5px 15px #0008;
 }
 
 .gif_item_image_content {
@@ -42,8 +44,16 @@
 	padding: 15px;
 	font-size: 20px;
 	font-weight: 600;
+	color: #fff;
 }
 
 .gif_item:hover .git_item_title_content {
 	opacity: 1;
+}
+
+@media screen and (min-width: 1000px) {
+	.gif_item {
+		width: 370px;
+		height: 370px;
+	}
 }
