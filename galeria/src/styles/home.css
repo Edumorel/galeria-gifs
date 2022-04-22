@@ -1,0 +1,27 @@
+main {
+	width: 100%;
+	margin: 200px 0 0 0;
+}
+
+.home_title {
+	font-size: 27px;
+	color: #333;
+	font-weight: 700;
+	margin: 0 0 15px 0;
+}
+
+.home_subtitle {
+	font-size: 20px;
+	color: #333;
+	font-weight: 500;
+}
+
+@media screen and (min-width: 600px) {
+	.home_title {
+		font-size: 40px;
+	}
+
+	.home_subtitle {
+		font-size: 35px;
+	}
+}
